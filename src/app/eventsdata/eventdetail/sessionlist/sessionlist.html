@@ -1,0 +1,23 @@
+
+<div class="row" *ngFor="let x of visiblesessions">
+  <div class="col-md-1"> 
+    <div *ngIf="authserv.isauth()">
+      <upvote (vote)="togglevote(x)" [count]="x.voters.length" [voted]="userhasvoted(x)"></upvote>
+    </div>
+
+  </div>
+    <collapsed class="col-md-10">
+   
+      <div class="well">
+        {{x.name}}
+         <i *ngIf="x.voters.length>3" class="glyphicon glyphicon-fire " style="color: red;"></i>
+      </div>
+      <div class="secondwell" >
+          <h6>Presenter :{{x.presenter}}</h6>
+          <span>Duration: {{x.duration|duration}}</span><br />
+          <span>Level: {{x.level}}</span>
+          <p>Abstract: {{x.abstract}}</p>
+      </div>
+     
+    </collapsed>
+  </div>

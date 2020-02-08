@@ -1,0 +1,23 @@
+<h1>Login</h1>
+<hr>
+<div class="col-md-4">
+  <form autocomplete="off" #loginform="ngForm" (ngSubmit)="onsubmit(loginform.value)"  >
+    <div class="form-group" >
+      <label for="userName">User Name:</label>
+      <em *ngIf="loginform.controls.username?.invalid&&(loginform.controls.username?.touched||mouse)">Required</em>
+      <input id="userName" name="username" required foo="ngModel" (ngModel)="username" type="text" class="form-control" placeholder="User Name..." />
+    </div>
+    <div class="form-group" >
+      <label for="password">Password:</label>
+      <em  *ngIf="loginform.controls.password?.invalid&&(loginform.controls.password?.touched||mouse)">Required</em>
+      <input id="password" name="password" required #foo="ngModel" (ngModel)="password" type="password" class="form-control"placeholder="Password..." />
+    </div>
+      <span (mouseenter)="mouse=true" (mouseleave)="mouse=false">
+        <button  [disabled]="loginform.invalid" type="submit" class="btn btn-primary">Login</button>
+      </span>  
+    
+    <button routerLink="/events" type="button" class="btn btn-default">Cancel</button>
+    <div *ngIf="logininvalid" class="alert alert-danger"> Invalid Login</div>
+  </form>
+</div>
+{{loginform.ClassNames|json}}

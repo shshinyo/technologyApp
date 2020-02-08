@@ -1,0 +1,18 @@
+
+  <h2 class="header ">Angular Events</h2>
+<div class="container col-md-2 well" *ngFor=" let data of data" [routerLink]="['/eventdetail',data.id]" >
+  
+    <img [src]="data?.imageUrl" style="width: 50px;">
+    <div style="font-size: large; font-weight: bold;"> {{data?.name|uppercase}}</div>
+    <div style="font-size: large; font-weight: bold;">{{data?.id}}</div>
+    <div> date: {{data?.date|date:'short'}}</div>
+    <div [ngSwitch]="data?.time" class="green" [class.green]="data?.time ==='8:00 am'" >
+        time:{{data?.time}}
+        <span *ngSwitchCase="'8:00 am'">(Early)</span>
+        <span *ngSwitchCase="'10:00 am'">(lately)</span>
+        <span *ngSwitchDefault>(Normal)</span>
+    </div>
+    <div>price:{{data?.price}}$</div>
+    <div *ngIf="data?.location">Location :{{data?.location.address}} {{data?.location.city}} {{data?.location.country}}</div>
+    
+  </div>

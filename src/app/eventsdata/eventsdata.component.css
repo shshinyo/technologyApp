@@ -1,0 +1,26 @@
+.green{
+    color: #224422 ;
+
+    font-weight: bold;
+}
+.well{
+    width: 400px;
+    height: 350px;
+    margin-left:100px;
+    background-color: white;
+    color:black;
+    cursor:pointer ;
+    border-radius: 20px;
+}
+.well:hover{
+    color: white;
+    cursor:auto;
+  background-color: brown;
+}
+.header{
+    margin-left: 100px;
+    color:white;
+    font-weight: bold;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+
+}
